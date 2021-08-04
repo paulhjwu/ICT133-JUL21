@@ -64,7 +64,7 @@ def q6():
     print(f'GST:            ${GST:6.2f}')
     print(f'Total amount:   ${total:6.2f}')
 
-#q6()
+q6()
 
 def q5():
 
