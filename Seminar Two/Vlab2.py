@@ -81,6 +81,7 @@ def q8():
         pass
     elif dataUsed <= 4: 
         surplus = dataUsed - 2
+        surplus = round(surplus, 4)
         charge += ceil(surplus * 10)
     else:
         charge = 25
