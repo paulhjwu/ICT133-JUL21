@@ -163,6 +163,7 @@ def Q6d():
 #Q6d()
 
 def Q6c():
+
     def Q6a_1():
 
         guess = input("Head or Tail (H or T): ").upper()
