@@ -1,3 +1,5 @@
+## Below NOT covered in VLab 3. For those covered, please scrow down further.
+
 import math
 #
 def Q11():
@@ -262,24 +264,35 @@ def Q4():
 
 #Q4()
 
+     
+
+#### Below Covered in VLab3
+
 def Q3c():
+    
     num = int(input("Enter number: "))
+
     while num != -1:
+
         if 2 <= num <= 10:
             for i in range(num):
                 print(f"{i+1} x {num} = {(i+1)*num}")
         else:
-            print(f"Invalid. Enter again")
-
+            print("The nubmer must be between 2 and 10")
+            
         num = int(input("Enter number: "))
 
-#Q3c()
+Q3c()
 
 def Q3b():
+
     num = int(input("Enter number: "))
+
     while num != -1:
+
         for i in range(num):
             print(f"{i+1} x {num} = {(i+1)*num}")
+        
         num = int(input("Enter number: "))
 
 #Q3b()
@@ -295,74 +308,143 @@ def Q3a():
 
 def Q2c():
 
-    inputStr = input("Input string: ")
-    while True:     
-        if inputStr == 'exit': break 
-        repeat = int(input("Number of times to repeat: "))       
-        for i in range(repeat):
-            print(f"{inputStr}")      
-        inputStr = input("Input string: ")
+    str = input("Inter a string: ")
+
+    while True:
+
+        if str == "Exit": break
+        repnum = int(input("Number of times to repeat: "))
+
+        for i in range(repnum):
+            print(str)
+        
+        str = input("Inter a string: ")
 
 #Q2c()
 
 def Q2b():
 
-    inputStr = input("Input string: ")
+    str = input("Inter a string: ")
 
-    for i in range(len(inputStr)):
-        print(f"{inputStr[:i+1]}")
+    for i in range(len(str)):
+        print(i)
+        print(str[:i+1])
 
 #Q2b()
 
 def Q2a():
 
-    inputStr = input("Input string: ")
-    num = int(input("Number of times to repeat: "))
+    str = input("Inter a string: ")
+    repnum = int(input("Number of times to repeat: "))
 
-    for i in range(num):
-        print(f"{inputStr}")
+    for i in range(repnum):
+        print(str)
 
 #Q2a()
 
 def Q1c():
 
-    fNum = int(input("Enter first number: "))
-    sNum = int(input("Enter second number: "))
-
-    if fNum < sNum:
-        begin = fNum
-        end = sNum+1
-        increment = 1
+    num1 = int(input("Enter first number: "))
+    num2 = int(input("Enter second number: "))
+    sum = 0
+    
+    if num1 < num2:
+        begin = num1
+        end = num2+1
+        incre = 1
     else:
-        begin = fNum
-        end = sNum - 1
-        increment = -1
+        begin = num1
+        end = num2 -1 
+        incre = -1
 
-    for i in range(begin, end, increment):
-        print(f"{i}")
+    for i in range(begin, end, incre):
+        print(i)
+        sum += i   
+    
+    print(f"The sum is {sum}")
 
 #Q1c()
 
 def Q1b():
 
-    fNum = int(input("Enter first number: "))
-    sNum = int(input("Enter second number: "))
-
+    lnum = int(input("Enter first number: "))
+    unum = int(input("Enter second number: "))
     sum = 0
-    for i in range(fNum, sNum+1):
-        print(f"{i}")
-        sum += i
 
+    for i in range(lnum, unum+1):
+        print(i)
+        sum += i
+    
     print(f"The sum is {sum}")
 
-#Q1b() 
+#Q1b()
 
 def Q1a():
 
-    fNum = int(input("Enter first number: "))
-    sNum = int(input("Enter second number: "))
+    lnum = int(input("Enter first number: "))
+    unum = int(input("Enter second number: "))
 
-    for i in range(fNum, sNum+1):
-        print(f"{i}")
+    for i in range(lnum, unum+1):
+        print(i)
 
-#Q1a()        
+#Q1a()
+
+def part1():
+
+   # First Part: 1. prompt for the input 2. return 3 arguments: op, num1, num2
+
+    a = input("Kindly enter arithmetic experssion: ")
+
+    P = a.find("+")
+    M = a.find("-")
+    T = a.find("*")
+    D = a.find("/")
+
+    L = max(P, M, T, D)
+
+    if P > 0:
+        op = "+"
+    elif M > 0:
+        op = "-"
+    elif T > 0:
+        op = "*"
+    elif D > 0: 
+        op = "/"
+    else:
+        op = "" 
+
+    n1 = float(a[0:L])
+    n2 = float(a[L+1:])
+
+    return  op, n1, n2
+
+def part2(op, n1, n2):
+
+    # Second Part: given the output (the operator, num1, num2) of the first part calculate and print the results */
+
+    if op == "+":
+        print(f"Result: {n1+n2:6.2f}")
+    elif op == "-":
+        print(f"Result: {n1-n2:6.2f}")
+    elif op == "*":
+        print(f"Result: {n1*n2:6.2f}")
+    elif op == "/":
+        print(f"Result: {n1/n2:6.2f}")
+    else:
+        print("Error!")
+
+def lab2_Q9():
+
+    # First Part: 1. prompt for the input 2. return 3 arguments.
+
+    op, n1, n2 = part1()
+
+    # Second Part: given the output (the operator, num1, num2) of the first part calculate and print the results */
+
+    part2(op, n1, n2)
+
+#lab2_Q9()
+
+# def Q10():
+
+# Q10()
