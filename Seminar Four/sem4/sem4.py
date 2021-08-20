@@ -1,17 +1,84 @@
-<<<<<<< HEAD
-def double(x):
-    x = x.append(2)
-    z = x
-    return z
+# Not covered in Seminar 
 
-def main():
-    z = [1]
-    x = [10]
-    y = double(x)
-    print(x, y)
+def slide34():
+    
+    def getPlayerGuess(tries):
+        return int(input(f"Try {tries}. Enter guess: "))
 
-main()
-=======
+    def checkGuess(guess, diceValue):
+
+        success = (diceValue == guess)
+
+        if success:
+            print("You got it!")
+        else:
+            print("Incorrect")
+
+        return success
+
+    def playGuessingGame(diceValue):
+
+        for tries in range(1, 4):
+            guess = getPlayerGuess(tries)
+            if checkGuess(guess, diceValue):
+                break
+        
+        if tries >= 3:
+            print(f"Sorry, you have tried {tries} times, the value is {diceValue}")
+
+    from random import randint
+
+    def rollDice():
+        return randint(1, 6)
+
+    def main():
+
+        playAgain = 'y'
+
+        while playAgain[0].lower() in 'yY':
+            diceValue = rollDice()
+            playGuessingGame(diceValue)
+            playAgain = input("Continue? y/n: ")
+        print("End game")
+
+    main()
+
+slide34()
+
+def slide28():
+
+    def double(x):
+        x = x.append(2)
+        z = x
+        return z
+
+    def main():
+        x = [10]
+        y = double(x)
+        print(x, y)
+
+    main()
+
+#slide28()
+
+def slide26():
+
+    def double(value):
+        value = 2 * value
+        z = value
+        return z
+
+    def main():
+        x = 10
+        y = double(x)
+        print(x, y)
+    #   print(value)
+
+    main()
+
+slide26()
+
+# Covered In Seminar
 
 def slide21():
 
@@ -179,4 +246,3 @@ def slide0():
     print("")
 
 #slide0()
->>>>>>> 4a3fb47a3823a1f103b9c304bac337e672127b8a
