@@ -1,3 +1,6 @@
+### Below is covered during Virtual Lab 
+### Scroll to the end to find Q4 and Q5 which are not covered
+
 # import random
 from random import randint, randrange
 
@@ -151,3 +154,52 @@ def Q1c():
 
 #Q1c()
 
+###### Those not covered were below Q4 and Q5
+
+def Q5():
+    
+    answer = ( 'a', 'b', 'b', 'a', 'd', 'c', 'b', 'a', 'b', 'c')
+    theInput = [0, ] * 10
+
+    for i in range(10):
+        theInput[i] = input(f"Q{i+1}: ")
+
+    count = 0
+
+    for i in range(10):
+        
+        if theInput[i]==answer[i]:
+            count+=1
+            msg= "correct"    
+        else:
+            msg = f"incorrect, answer is {answer[i]}" 
+        
+        print(f"Q{i+1}: {theInput[i]} {msg}")
+    
+    print(f"Total {count} out of 10 correct")
+
+#Q5()
+
+def Q4():
+    
+    nric = input(f"NRIC No.(with official reference) = ")
+
+    checkStr = "ABCDEFGHIZJ"
+    weight = (2, 7, 6, 5, 4, 3, 2)
+
+    sum = 0
+    index = 0
+    for i in nric[1:len(nric)-1]:
+        if i[0].isdigit():
+            sum += (int(i)*weight[index]) # ascii 0 is 48
+            index += 1
+
+    remainder = sum % 11
+    checkDigit = 11 - remainder 
+
+    if nric[len(nric)-1] != checkStr[checkDigit-1]:
+        print(f"The Reference Character is not correct")
+    else:
+        print(f"The Reference Character is correct")
+
+#Q4()
