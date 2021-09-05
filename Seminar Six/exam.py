@@ -1,5 +1,106 @@
 def Q3():
 
+    #Q3a
+    
+    from random import randrange # 1 mark
+    def getRandomNumber(minimum, maximum): # 1 mark:
+        return randrange(minimum, maximum + 1) # 1 mark
+    
+    #Q3b
+    def getRandomAverage(times, minimum, maximum): # 1 mark
+        
+        total = 0 # 1 mark
+        
+        for _ in range(times): # 1 mark
+            total += getRandomNumber(minimum, maximum) # 1 mark
+        
+        return total/times # 1 mark
+
+    #Q3c
+    def checkRandomness(times, precision, minimum, maximum): # 1 mark
+    
+        outfile = open('randomnessCheck.txt', 'a') # 1 mark
+        ave1 = round(getRandomAverage(times, minimum, maximum), precision) # 2 marks
+        ave2 = round((minimum + maximum)/2, precision) # 2 marks
+
+        print(f'Average of {times} random numbers, {ave1} is {"the same as" if ave1 == ave2 else "different from"} average of {minimum} and {maximum}, {ave2}') # 1 mark
+        print(f'Average of {times} random numbers, {ave1} is {"the same as" if ave1 == ave2 else "different from"} average of {minimum} and {maximum}, {ave2}', file=outfile) # 2 marks
+        
+        outfile.close()# 1 mark
+
+    #Q3d
+    def main():
+
+        minimum, maximum = input('Enter the minimum value and maximum values, separated by a space: ').split() # 1 mark
+        minimum, maximum = int(minimum), int(maximum) # 1 mark
+        precision = int(input('Enter number of digits precision after decimal point: ')) # 1 mark
+    
+        while True: # 1 mark
+            times = int(input('Enter number of random numbers to test: ')) # 1 mark
+            if times <= 0: # 1 mark
+                break
+            checkRandomness(times, precision, minimum, maximum) # 1 mark
+    
+        print('Application ended')
+    
+    main()
+
+#Q3()
+
+def Q4():
+
+    def claim(insurance): # 1 mark
+
+        outfile = open('claims.txt', 'a')
+        pType = input('Enter policy type: ') # 1 mark
+        
+        if pType not in insurance: # 1 mark
+            print('Invalid policy type')
+        else:
+            amount = float(input('Enter claim amount: $')) # 1 mark
+            if amount <= 0: # 1 mark
+                print('Invalid claim amount') 
+            else:
+                insurance[pType].append(amount) # 2 marks
+                print('Successful policy claim') # 1 mark
+
+    def summary(insurance):
+
+        print('Summary of Policies A, B, C')  # 1 mark`
+        print('Policy  Total Claimed($)  Number of Claims') # 1 mark
+        
+        for k,v in insurance.items():# 2 marks
+            print(f'{k:^6}  {float(sum(v)):15.2f}  {len(v):>17}')  # 3 marks
+        
+        print('End Summary') # 1 mark    
+
+    def getOption():# 1 mark
+        return int(input('''Menu
+1.    Make A Claim
+2.    Get Summary
+0.    Exit
+Enter option: '''))
+        
+    def main():
+        insurance = {'A': [], 'B': [], 'C': []} # 1 mark
+        while True: # 2 marks
+            option = getOption()# 1 mark
+            if option == 1: # 1 mark
+                claim(insurance)
+            elif option == 2: # 1 mark
+                summary(insurance)
+            elif option == 0: # 1 mark
+                break
+            else: # 1 mark
+                print('Invalid option')
+        print('Application ended')
+        
+    main() 
+
+Q4()
+
+def LabQ3():
+
     soups = {"Clam Chowder": 50, "Mushroom": 50, "Tomato": 50, "Pumpkin": 50, "Oxtail": 50}
 
     def displayMenu():
@@ -82,7 +183,7 @@ Enter your choice '''))
 
         choice = displayMenu()
 
-Q3()
+#LabQ3()
 
 
 # Quesiton 1.b
